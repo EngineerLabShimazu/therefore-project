@@ -10,6 +10,8 @@ from ask_sdk_core.utils import is_request_type, is_intent_name
 from ask_sdk_core.handler_input import HandlerInput
 
 from ask_sdk_model import Response
+from backend import Backend
+from state import State
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -23,8 +25,27 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speech_text = "Welcome, you can say Hello or Help. Which would you like to try?"
-        handler_input.response_builder.speak(speech_text).ask(speech_text)
+        backend_response = Backend.main(parameter={'state': State.LAUNCH})
+        text_keys = backend_response.get('text_keys')
+        State.set_state_to_session(handler_input,
+                                   backend_response.get('next_state'))
+        handler_input.response_builder.speak(text_keys).ask(text_keys)
+        return handler_input.response_builder.response
+
+
+class YesHandler(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("AMAZON.YesIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Union[None, Response]
+        state = State.get_state_from_session(handler_input)
+        backend_response = Backend.main(parameter={'state': state})
+        text_keys = backend_response.get('text_keys')
+        handler_input.response_builder.speak(text_keys).ask(text_keys)
+        State.set_state_to_session(handler_input,
+                                   backend_response.get('next_state'))
         return handler_input.response_builder.response
 
 
@@ -121,6 +142,7 @@ class ErrorHandler(AbstractExceptionHandler):
 # defined are included below. The order matters - they're processed top to bottom.
 sb = SkillBuilder()
 sb.add_request_handler(LaunchRequestHandler())
+sb.add_request_handler(YesHandler())
 sb.add_request_handler(HelloWorldIntentHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
