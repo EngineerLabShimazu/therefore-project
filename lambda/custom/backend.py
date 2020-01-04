@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import logging
 from state import State
+from utils import select_themes
 
 logger = logging.getLogger('heart-yell')
 logger.setLevel(logging.INFO)
@@ -16,31 +17,33 @@ def launch(intent):
 
 
 def example(intent):
+    themes = select_themes()
     return {
-        'text_keys': 'たとえば…あなたは私の太陽です。'
-                     'いつも私を照らしてくれます。'
-                     'ふふふ、'
-                     'ではやってみましょう。'
-                     'AはBだ。'
-                     'ﾁｯﾁｯﾁｯ、'
-                     '3、2、1、'
-                     'さぁ、うまく落とせましたか？'
-                     'このネタを記録しておきたいですか？',
+        'text_keys': ['たとえば…'
+                      '<voice name="Mizuki">あなたは私の太陽です。いつも私を照らしてくれます。</voice>',
+                      'ふふふ、',
+                      'ではやってみましょう。',
+                      f'{themes[0]}は{themes[1]}だ。',
+                      'ﾁｯﾁｯﾁｯ、',
+                      '3、2、1、',
+                      'さぁ、うまく落とせましたか？',
+                      'このネタを記録しておきたいですか？'],
         'next_state': State.SAVE_THEME
         }
 
 
 def save_theme(intent):
+    themes = select_themes()
     return {
-        'text_keys': '記録しました。'
-                     'どんどん行きますよ。'
-                     '終了するには、終了と言ってください。'
-                     'では次です。'
-                     'AはBだ。'
-                     'ﾁｯﾁｯﾁｯ、'
-                     '3、2、1、'
-                     'さぁ、うまく落とせましたか？'
-                     'このネタを記録しておきたいですか？',
+        'text_keys': ['記録しました。',
+                      'どんどん行きますよ。',
+                      '終了するには、終了と言ってください。',
+                      'では次です。',
+                      f'{themes[0]}は{themes[1]}だ。',
+                      'ﾁｯﾁｯﾁｯ、',
+                      '3、2、1、',
+                      'さぁ、うまく落とせましたか？',
+                      'このネタを記録しておきたいですか？'],
         'next_state': State.SAVE_THEME
         }
 
