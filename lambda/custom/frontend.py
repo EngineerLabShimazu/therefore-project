@@ -2,6 +2,7 @@
 
 # This sample demonstrates handling intents from an Alexa skill using the Alexa Skills Kit SDK.
 import logging
+import utils
 
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
@@ -43,7 +44,8 @@ class YesHandler(AbstractRequestHandler):
         state = State.get_state_from_session(handler_input)
         backend_response = Backend.main(parameter={'state': state})
         text_keys = backend_response.get('text_keys')
-        handler_input.response_builder.speak(text_keys).ask(text_keys)
+        speech_text = utils.get_speech_text({}, text_keys)
+        handler_input.response_builder.speak(speech_text).ask(speech_text)
         State.set_state_to_session(handler_input,
                                    backend_response.get('next_state'))
         return handler_input.response_builder.response
