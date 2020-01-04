@@ -16,6 +16,15 @@
           ]
         },
         {
+          "name": "AMAZON.NoIntent",
+          "samples": [
+            "のー",
+            "やだ",
+            "記録しない",
+            "記録しません"
+          ]
+        },
+        {
           "name": "AMAZON.CancelIntent",
           "samples": []
         },
