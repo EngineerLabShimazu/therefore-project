@@ -16,7 +16,7 @@ class ThemesTable:
     b_list: Sequence[str]
 
     def __init__(self):
-        _themes_table = read_file('Alexa笑点 - お題.csv')
+        _themes_table = read_file('s3')
         self.a_list = [_themes[Theme.a] for _themes in _themes_table]
         self.b_list = [_themes[Theme.b] for _themes in _themes_table]
 
