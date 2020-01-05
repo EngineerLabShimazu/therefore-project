@@ -3,7 +3,6 @@ import csv
 import random
 from typing import Sequence
 from dataclasses import dataclass
-# from theme import Theme
 
 
 @dataclass(frozen=True)
@@ -12,14 +11,18 @@ class Theme:
     b: int = 1
 
 
-def get_row(row_num: int) -> Sequence[str]:
+def read_themes_file() -> Sequence[Sequence[str]]:
     with open(
             os.path.join(
-                os.getcwd(), 'lambda', 'assets', 'Alexa笑点 - お題.csv')
+                os.getcwd(), 'Alexa笑点 - お題.csv')
             ) as csv_file:
         spam_reader = csv.reader(csv_file, delimiter=',', quotechar='|')
-        # TODO if out of index: return
-        return [row[row_num] for row in spam_reader]
+        return [row for row in spam_reader]
+
+
+def get_row(row_num: int) -> Sequence[str]:
+    themes_table = read_themes_file()
+    return [themes[row_num] for themes in themes_table]
 
 
 def select_theme(theme: int) -> str:
