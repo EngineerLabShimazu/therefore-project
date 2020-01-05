@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 import logging
 from state import State
-from theme import global_themes
+from theme import theme_set
 
 logger = logging.getLogger('therefor-project')
 logger.setLevel(logging.INFO)
@@ -22,7 +22,7 @@ def example(intent):
                       '<voice name="Mizuki">あなたは私の太陽です。いつも私を照らしてくれます。</voice>',
                       'ふふふ、',
                       'ではやってみましょう。',
-                      f'{global_themes.a}は{global_themes.b}だ。',
+                      f'{theme_set.a}は{theme_set.b}だ。',
                       'ﾁｯﾁｯﾁｯ、',
                       '3、2、1、',
                       'さぁ、うまく落とせましたか？',
@@ -37,7 +37,7 @@ def save_theme(intent):
                       'どんどん行きますよ。',
                       '終了するには、終了と言ってください。',
                       'では次です。',
-                      f'{global_themes.a}は{global_themes.b}だ。',
+                      f'{theme_set.a}は{theme_set.b}だ。',
                       'ﾁｯﾁｯﾁｯ、',
                       '3、2、1、',
                       'さぁ、うまく落とせましたか？',

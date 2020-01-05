@@ -1,7 +1,8 @@
 import random
+from abc import ABC
 from typing import Sequence
 from dataclasses import dataclass
-from utils import read_file
+from utils import read_file, Singleton
 
 
 @dataclass(frozen=True)
@@ -32,7 +33,7 @@ global_themes_table = ThemesTable()
 
 
 @dataclass
-class Themes:
+class ThemeSet(Singleton, ABC):
     a: str
     b: str
 
@@ -42,4 +43,4 @@ class Themes:
         self.b = _themes[Theme.b]
 
 
-global_themes = Themes()
+theme_set = ThemeSet.get_instance()

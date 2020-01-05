@@ -19,3 +19,20 @@ def get_speech_text(_, text_keys):
                     for text_key in text_keys]
     separated_value = _.get('SEPARATED_VALUE', '.')
     return f'{separated_value}'.join(speech_texts)
+
+
+class Singleton:
+    _unique_instance = None
+
+    def __new__(cls):
+        raise NotImplementedError('Cannot initialize via Constructor')
+
+    @classmethod
+    def __internal_new__(cls):
+        return super().__new__(cls)
+
+    @classmethod
+    def get_instance(cls):
+        if not cls._unique_instance:
+            cls._unique_instance = cls.__internal_new__()
+        return cls._unique_instance
