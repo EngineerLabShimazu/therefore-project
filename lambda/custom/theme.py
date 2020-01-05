@@ -37,10 +37,18 @@ class ThemeSet(Singleton, ABC):
     a: str
     b: str
 
-    def __init__(self):
+    @classmethod
+    def get_instance(cls):
+        if not cls._unique_instance:
+            cls._unique_instance = cls.__internal_new__()
+            cls.init()
+        return cls._unique_instance
+
+    @classmethod
+    def init(cls):
         _themes = global_themes_table.select_themes()
-        self.a = _themes[Theme.a]
-        self.b = _themes[Theme.b]
+        cls.a = _themes[Theme.a]
+        cls.b = _themes[Theme.b]
 
 
 theme_set = ThemeSet.get_instance()
