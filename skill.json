@@ -5,9 +5,11 @@
         "ja-JP": {
           "summary": "A basic skill made from Alexa Skills Kit template",
           "examplePhrases": [
-            "AはBだを開いて"
+            "愛はせんべいを開いて"
           ],
-          "name": "AはBだ",
+          "name": "愛はせんべい",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/ec22/8de02363370b40288173fba414de4b4d/APP_ICON?versionId=eAD5jEbysAe_cns.ASqgBTaqLh0Ut.Do&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200105T023829Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200105%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=353eaa00c999da4858c800b08f8c88931d114797db0b023d78fc486182f66d44",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/91e9/c5e26858d39b4c029bf44a1f45447bd7/APP_ICON_LARGE?versionId=3eO4.0bDgibZkGzpbQhhzH.6zwBA_tPx&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200105T023829Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200105%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1452649716e82b393d09a80587eeb2183b508b8397525a010afb0173f8b0bef8",
           "description": "A basic skill made from Alexa Skills Kit template"
         }
       },
@@ -20,6 +22,16 @@
       "custom": {
       }
     },
-    "manifestVersion": "1.0"
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "locales": {
+        "ja-JP": {}
+      },
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false
+    }
   }
 }
