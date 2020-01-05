@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 import logging
 from state import State
-from utils import select_themes
+from theme import global_themes
 
-logger = logging.getLogger('heart-yell')
+logger = logging.getLogger('therefor-project')
 logger.setLevel(logging.INFO)
 
 
@@ -17,13 +17,12 @@ def launch(intent):
 
 
 def example(intent):
-    themes = select_themes()
     return {
         'text_keys': ['たとえば…'
                       '<voice name="Mizuki">あなたは私の太陽です。いつも私を照らしてくれます。</voice>',
                       'ふふふ、',
                       'ではやってみましょう。',
-                      f'{themes[0]}は{themes[1]}だ。',
+                      f'{global_themes.a}は{global_themes.b}だ。',
                       'ﾁｯﾁｯﾁｯ、',
                       '3、2、1、',
                       'さぁ、うまく落とせましたか？',
@@ -33,13 +32,12 @@ def example(intent):
 
 
 def save_theme(intent):
-    themes = select_themes()
     return {
         'text_keys': ['記録しました。',
                       'どんどん行きますよ。',
                       '終了するには、終了と言ってください。',
                       'では次です。',
-                      f'{themes[0]}は{themes[1]}だ。',
+                      f'{global_themes.a}は{global_themes.b}だ。',
                       'ﾁｯﾁｯﾁｯ、',
                       '3、2、1、',
                       'さぁ、うまく落とせましたか？',
