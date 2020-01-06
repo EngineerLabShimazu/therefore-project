@@ -3,6 +3,11 @@ import csv
 import boto3
 from typing import Sequence
 
+FILE_NAME = os.getenv('FILE_NAME')
+PROJECT_NAME = os.getenv('PROJECT_NAME')
+BUCKET_NAME = os.getenv('BUCKET_NAME')
+FILE_KEY = os.path.join(PROJECT_NAME, FILE_NAME)
+
 
 def read_file_from_s3(bucket_name, file_path):
     s3 = boto3.resource('s3')
@@ -23,14 +28,9 @@ def read_file_from_lambda(file_name: str,
 
 
 def read_file(target: str = '') -> Sequence[Sequence[str]]:
-    file_name = os.getenv('FILE_NAME')
     if target == 's3':
-        bucket_name = os.getenv('BUCKET_NAME')
-        file_key = os.path.join(
-            os.getenv('PROJECT_NAME'), file_name
-            )
-        return read_file_from_s3(bucket_name, file_key)
-    return read_file_from_lambda(file_name)
+        return read_file_from_s3(BUCKET_NAME, FILE_KEY)
+    return read_file_from_lambda(FILE_NAME)
 
 
 def get_speech_text(_, text_keys):
