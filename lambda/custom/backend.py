@@ -17,31 +17,34 @@ def launch(intent):
 
 
 def example(intent):
+    text_keys = []
+    if intent == 'Amaozn.YesIntent':
+        text_keys.append('たとえば…')
+        text_keys.append(
+            '<voice name="Mizuki">あなたは私の太陽です。いつも私を照らしてくれます。</voice>')
+
+    for text_key in ['ふふふ、',
+                     'ではやってみましょう。',
+                     f'{theme_set.a}は{theme_set.b}だ。',
+                     'ﾁｯﾁｯﾁｯ、',
+                     '3、2、1、',
+                     'さぁ、うまく落とせましたか？']:
+        text_keys.append(text_key)
+
     return {
-        'text_keys': ['たとえば…'
-                      '<voice name="Mizuki">あなたは私の太陽です。いつも私を照らしてくれます。</voice>',
-                      'ふふふ、',
-                      'ではやってみましょう。',
-                      f'{theme_set.a}は{theme_set.b}だ。',
-                      'ﾁｯﾁｯﾁｯ、',
-                      '3、2、1、',
-                      'さぁ、うまく落とせましたか？',
-                      'このネタを記録しておきたいですか？'],
+        'text_keys': text_keys,
         'next_state': State.SAVE_THEME
         }
 
 
 def save_theme(intent):
     return {
-        'text_keys': ['記録しました。',
-                      'どんどん行きますよ。',
-                      '終了するには、終了と言ってください。',
-                      'では次です。',
+        'text_keys': ['終了するには、おわりと言ってください。',
+                      'さぁ、どんどん行きますよ。',
                       f'{theme_set.a}は{theme_set.b}だ。',
                       'ﾁｯﾁｯﾁｯ、',
                       '3、2、1、',
-                      'さぁ、うまく落とせましたか？',
-                      'このネタを記録しておきたいですか？'],
+                      'さぁ、うまく落とせましたか？'],
         'next_state': State.SAVE_THEME
         }
 
