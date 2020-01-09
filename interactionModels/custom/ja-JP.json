@@ -38,7 +38,9 @@
         },
         {
           "name": "AMAZON.StopIntent",
-          "samples": []
+          "samples": [
+            "おわり"
+          ]
         }
       ],
       "types": []
