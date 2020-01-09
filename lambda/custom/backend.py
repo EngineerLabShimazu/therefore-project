@@ -18,7 +18,7 @@ def launch(intent):
 
 def example(intent):
     text_keys = []
-    if intent == 'Amaozn.YesIntent':
+    if intent == 'AMAZON.YesIntent':
         text_keys.append('たとえば…')
         text_keys.append(
             '<voice name="Mizuki">あなたは私の太陽です。いつも私を照らしてくれます。</voice>')
