@@ -42,7 +42,26 @@ class YesHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Union[None, Response]
         state = State.get_state_from_session(handler_input)
-        backend_response = Backend.main(parameter={'state': state})
+        backend_response = Backend.main(
+            parameter={'state': state, 'intent': 'AMAZON.YesIntent'})
+        text_keys = backend_response.get('text_keys')
+        speech_text = utils.get_speech_text({}, text_keys)
+        handler_input.response_builder.speak(speech_text).ask(speech_text)
+        State.set_state_to_session(handler_input,
+                                   backend_response.get('next_state'))
+        return handler_input.response_builder.response
+
+
+class NoHandler(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("AMAZON.NoIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Union[None, Response]
+        state = State.get_state_from_session(handler_input)
+        backend_response = Backend.main(
+            parameter={'state': state, 'intent': 'AMAZON.NoIntent'})
         text_keys = backend_response.get('text_keys')
         speech_text = utils.get_speech_text({}, text_keys)
         handler_input.response_builder.speak(speech_text).ask(speech_text)
