@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "愛はせんべい",
+      "invocationName": "愛はせんべいだ",
       "intents": [
         {
           "name": "AMAZON.YesIntent",
