@@ -15,7 +15,7 @@ def read_file_from_s3(bucket_name, file_path):
     body = obj.get()['Body'].read()
     decoded: str = body.decode('utf-8')
     new_lines = decoded.split('\r\n')
-    return [row for row in new_lines]
+    return [row.split(',') for row in new_lines]
 
 
 def read_file_from_lambda(file_name: str,
@@ -28,7 +28,7 @@ def read_file_from_lambda(file_name: str,
 
 
 def read_file(target: str = '') -> Sequence[Sequence[str]]:
-    if target == 'local':
+    if target == 's3':
         return read_file_from_s3(BUCKET_NAME, FILE_KEY)
     return read_file_from_lambda(FILE_NAME)
 
