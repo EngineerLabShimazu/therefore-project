@@ -4,11 +4,11 @@ import boto3
 import json
 from typing import Sequence
 
-FILE_NAME = os.getenv('FILE_NAME')
-PROJECT_NAME = os.getenv('PROJECT_NAME')
-BUCKET_NAME = os.getenv('BUCKET_NAME')
-FILE_KEY = os.path.join(PROJECT_NAME, FILE_NAME)
-SKILL_JSON_PATH = os.getenv('SKILL_JSON', 'skill.json')
+_FILE_NAME = os.getenv('FILE_NAME', 'Alexa笑点 - お題.csv')
+_PROJECT_NAME = os.getenv('PROJECT_NAME', 'therefore-project')
+_FILE_KEY = os.path.join(_PROJECT_NAME, _FILE_NAME)
+_BUCKET_NAME = os.getenv('BUCKET_NAME', '')
+_SKILL_JSON_PATH = os.getenv('SKILL_JSON', 'skill.json')
 _SKILL_NAME = os.getenv('SKILL_NAME', '')
 
 
@@ -21,8 +21,8 @@ def get_skill_name(locale: str = 'ja-JP') -> str:
     Args:
         locale: when get from skill.json
     """
-    if os.path.exists(SKILL_JSON_PATH):
-        with open(SKILL_JSON_PATH, 'r') as skill_json:
+    if os.path.exists(_SKILL_JSON_PATH):
+        with open(_SKILL_JSON_PATH, 'r') as skill_json:
             json_loaded = json.load(skill_json)
             return json_loaded['manifest']['publishingInformation']['locales'][
                 locale]['name']
@@ -49,8 +49,8 @@ def read_file_from_lambda(file_name: str,
 
 def read_file(target: str = '') -> Sequence[Sequence[str]]:
     if target == 's3':
-        return read_file_from_s3(BUCKET_NAME, FILE_KEY)
-    return read_file_from_lambda(FILE_NAME)
+        return read_file_from_s3(_BUCKET_NAME, _FILE_KEY)
+    return read_file_from_lambda(_FILE_NAME)
 
 
 def get_speech_text(_, text_keys):
