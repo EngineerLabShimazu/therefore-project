@@ -1,5 +1,6 @@
-from dataclasses import dataclass
 import logging
+import utils
+from dataclasses import dataclass
 from state import State
 from theme import theme_set
 
@@ -9,7 +10,7 @@ logger.setLevel(logging.INFO)
 
 def launch(intent):
     return {
-        'text_keys': 'Alexa笑点へようこそ！'
+        'text_keys': f'{utils.get_skill_name()}、へようこそ！'
                      '今から私が「AはB」といいますので、10秒で平和な結末に落としてください。'
                      '例を聞きますか？',
         'next_state': State.EXAMPLE
