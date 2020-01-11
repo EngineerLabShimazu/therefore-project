@@ -9,7 +9,7 @@ _PROJECT_NAME = os.getenv('PROJECT_NAME', 'therefore-project')
 _FILE_KEY = os.path.join(_PROJECT_NAME, _FILE_NAME)
 _BUCKET_NAME = os.getenv('BUCKET_NAME', '')
 _SKILL_JSON_PATH = os.getenv('SKILL_JSON', 'skill.json')
-_SKILL_NAME = os.getenv('SKILL_NAME', '')
+_SKILL_NAME = os.getenv('SKILL_NAME', 'SKILL_NAME')
 
 
 def get_skill_name(locale: str = 'ja-JP') -> str:
