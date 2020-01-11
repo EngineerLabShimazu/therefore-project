@@ -1,12 +1,24 @@
 import os
 import csv
 import boto3
+import json
 from typing import Sequence
 
 FILE_NAME = os.getenv('FILE_NAME')
 PROJECT_NAME = os.getenv('PROJECT_NAME')
 BUCKET_NAME = os.getenv('BUCKET_NAME')
 FILE_KEY = os.path.join(PROJECT_NAME, FILE_NAME)
+SKILL_JSON_PATH = os.getenv('SKILL_JSON', 'skill.json')
+_SKILL_NAME = os.getenv('SKILL_NAME', '')
+
+
+def get_skill_name(locale: str = 'ja-JP') -> str:
+    if os.path.exists(SKILL_JSON_PATH):
+        with open('skill.json', 'r') as skill_json:
+            json_loaded = json.load(skill_json)
+            return json_loaded['manifest']['publishingInformation']['locales'][
+                locale]['name']
+    return _SKILL_NAME
 
 
 def read_file_from_s3(bucket_name, file_path):
