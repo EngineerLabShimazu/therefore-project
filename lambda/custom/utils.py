@@ -13,8 +13,16 @@ _SKILL_NAME = os.getenv('SKILL_NAME', '')
 
 
 def get_skill_name(locale: str = 'ja-JP') -> str:
+    """
+    Get Priority
+    - skill.json "manifest.publishingInformation.locales.ja-JP.name"
+    - environment valuable from "lambda"
+    - from python
+    Args:
+        locale: when get from skill.json
+    """
     if os.path.exists(SKILL_JSON_PATH):
-        with open('skill.json', 'r') as skill_json:
+        with open(SKILL_JSON_PATH, 'r') as skill_json:
             json_loaded = json.load(skill_json)
             return json_loaded['manifest']['publishingInformation']['locales'][
                 locale]['name']
