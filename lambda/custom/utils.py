@@ -14,7 +14,7 @@ _SKILL_NAME = os.getenv('SKILL_NAME', '')
 
 def get_skill_name(locale: str = 'ja-JP') -> str:
     """
-    Get Priority
+    取得の優先順位
     - skill.json "manifest.publishingInformation.locales.ja-JP.name"
     - environment valuable from "lambda"
     - from python
