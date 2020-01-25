@@ -3,22 +3,22 @@
     "publishingInformation": {
       "locales": {
         "ja-JP": {
-          "name": "愛はせんべいだ",
+          "name": "あれこれ結び",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/ec22/8de02363370b40288173fba414de4b4d/APP_ICON?versionId=eAD5jEbysAe_cns.ASqgBTaqLh0Ut.Do&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200105T023829Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200105%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=353eaa00c999da4858c800b08f8c88931d114797db0b023d78fc486182f66d44",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/91e9/c5e26858d39b4c029bf44a1f45447bd7/APP_ICON_LARGE?versionId=3eO4.0bDgibZkGzpbQhhzH.6zwBA_tPx&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200105T023829Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200105%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1452649716e82b393d09a80587eeb2183b508b8397525a010afb0173f8b0bef8",
-          "summary": "Alexaが出したお題を聞いて、10秒で思わず人を「なるほど！」と唸らせる平和な結末に落としましょう。",
-          "description": "Alexaが出したお題を聞いて、10秒で思わず人を「なるほど！」と唸らせる平和な結末に落としましょう。うまくいったネタはストックしておくと、今話題のぺ○ぱ風の会話が楽しめますよ。アタマの体操にも最適です。\n\n遊び方\n『愛はせんべいだ』は、Alexaが出すお題を聞いて発想力を駆使するタイプの、大喜利的な発想サポートスキルです。ランダムな組み合わせのお題に答えて、瞬発的に「うまいことをいう」能力を獲得しましょう！\nAlexaが出すお題を聞いて、10秒以内に思わず人を「なるほど」と唸らせるような平和な結末を考え言葉にしてみてください。\nなかなかうまいことが言えない…と困った時は、話題のお笑いコンビ、「ぺ○ぱ」をお手本にすると良いですよ👍",
+          "summary": "お題を聞いて、10秒で思わず人を「なるほど！」と唸らせる平和な結末に落としましょう。",
+          "description": "お題を聞いて、10秒で思わず人を「なるほど！」と唸らせる平和な結末に落としましょう。うまくいったネタはストックしておくと、今話題のぺ○ぱ風の会話が楽しめますよ。アタマの体操にも最適です。\n\n遊び方\n『あれこれ結び』は、Alexaが出すお題を聞いて発想力を駆使するタイプの、大喜利的な発想サポートスキルです。ランダムな組み合わせのお題に答えて、瞬発的に「うまいことをいう」能力を獲得しましょう！\nお題を聞いて、10秒以内に思わず人を「なるほど」と唸らせるような平和な結末を考え言葉にしてみてください。\nなかなかうまいことが言えない…と困った時は、話題のお笑いコンビ、「ぺ○ぱ」をお手本にすると良いですよ",
           "examplePhrases": [
-            "愛はせんべいだを開いて"
+            "あれこれ結びを開いて"
           ],
           "keywords": [
-            "愛はせんべいだ、愛、せんべい、愛はせんべい、あいはせんべいだ、愛は煎餅だ"
+            "あれこれ結び、あれ、これ、結び、結"
           ],
-          "updatesDescription": "愛はせんべいだをリリースしました。"
+          "updatesDescription": "あれこれ結びをリリースしました。"
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "「愛はせんべいだをひらいて」「Alexa笑点へようこそ！今から私が「AはB」といいますので、10秒で平和な結末に落としてください。例を聞きますか？」「はい」「たとえば….あなたは私の太陽です。いつも私を照らしてくれます。.ふふふ、.ではやってみましょう。.白米はふるさとだ。.ﾁｯﾁｯﾁｯ、.3、2、1、.さぁ、うまく落とせましたか？」「はい」...移行、スキルを終了するまでループ",
+      "testingInstructions": "「あれこれ結びをひらいて」「あれこれ結びへようこそ！今から私が「AはBだ」、とお題を出しますので、10秒で平和な結末に落としてください。例を聞きますか？」「はい」「たとえば….あなたは私の太陽です。いつも私を照らしてくれます。ふふふ。ではやってみましょう。白米はふるさとだ。ﾁｯﾁｯﾁｯ、3、2、1、さぁ、うまく落とせましたか？」「はい」...移行、スキルを終了するまでループ",
       "category": "EDUCATION_AND_REFERENCE",
       "distributionCountries": []
     },
