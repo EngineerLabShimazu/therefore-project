@@ -29,7 +29,7 @@ def example(intent):
                      f'{theme_set.a}は{theme_set.b}だ。',
                      'ﾁｯﾁｯﾁｯ、',
                      '3、2、1、',
-                     'さぁ、うまく落とせましたか？']:
+                     'うまく落とせましたか？']:
         text_keys.append(text_key)
 
     return {
@@ -45,7 +45,7 @@ def save_theme(intent):
                       f'{theme_set.a}は{theme_set.b}だ。',
                       'ﾁｯﾁｯﾁｯ、',
                       '3、2、1、',
-                      'さぁ、うまく落とせましたか？'],
+                      'うまく落とせましたか？'],
         'next_state': State.SAVE_THEME
         }
 
