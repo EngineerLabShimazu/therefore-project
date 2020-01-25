@@ -8,7 +8,7 @@ logger = logging.getLogger('therefor-project')
 logger.setLevel(logging.INFO)
 
 
-def launch(intent):
+def launch():
     return {
         'text_keys': f'{utils.get_skill_name()}、へようこそ！'
                      '今から私が「AはBだ」、とお題を出しますので、10秒で平和な結末に落としてください。'
@@ -64,9 +64,11 @@ class Backend:
             parameter.get('state')
             )
         if param.state == State.LAUNCH:
-            return launch(param.intent)
+            return launch()
         elif param.state == State.EXAMPLE:
             return example(param.intent)
         elif param.state == State.SAVE_THEME:
             return save_theme(param.intent)
+        elif param.state == State.HELP:
+            return launch()
         return {'text_keys': 'ステートが存在しません'}

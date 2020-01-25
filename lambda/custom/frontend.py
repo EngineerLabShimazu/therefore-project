@@ -24,8 +24,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> bool
         return is_request_type("LaunchRequest")(handler_input)
 
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
+    def handle(self, handler_input: HandlerInput, state=None) -> Response:
         backend_response = Backend.main(parameter={'state': State.LAUNCH})
         text_keys = backend_response.get('text_keys')
         State.set_state_to_session(handler_input,
@@ -77,10 +76,14 @@ class HelpIntentHandler(AbstractRequestHandler):
         return is_intent_name("AMAZON.HelpIntent")(handler_input)
 
     def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "You can say hello to me! How can I help?"
-        handler_input.response_builder.speak(speech_text).ask(speech_text)
-        return handler_input.response_builder.response
+        return LaunchRequestHandler().handle(handler_input, State.HELP)
+        # # type: (HandlerInput) -> Response
+        # speech_text = "「あれこれ結び」へようこそ！ " \
+        #               "お題を聞いて、10秒で思わず人を「" \
+        #               "なるほど！」と唸らせる、平和な結末に落としましょう。" \
+        #               "例を聞きますか？"
+        # handler_input.response_builder.speak(speech_text).ask(speech_text)
+        # return handler_input.response_builder.response
 
 
 class CancelOrStopIntentHandler(AbstractRequestHandler):

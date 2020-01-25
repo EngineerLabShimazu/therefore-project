@@ -6,6 +6,7 @@ class State:
     LAUNCH = 'launch'
     EXAMPLE = 'example'
     SAVE_THEME = 'save_theme'
+    HELP = 'help'
 
     @staticmethod
     def get_state_from_session(handler_input):
